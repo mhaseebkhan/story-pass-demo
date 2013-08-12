@@ -1,4 +1,4 @@
-== README
+== StoryPass
 
 StoryPass is a new password recovery system which allows users to recover their password based on some images uploaded
 as a part of registration process. The images are selected based on a story by the user.
