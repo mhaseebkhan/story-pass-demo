@@ -6,20 +6,12 @@ require "rails"
   action_controller
   action_mailer
   active_resource
-  rails/test_unit
 ).each do |framework|
   begin
     require "#{framework}/railtie"
   rescue LoadError
   end
 end
-
-#require "rails/all"
-
-#require "action_controller/railtie"
-#require "action_mailer/railtie"
-#require "active_resource/railtie"
-#require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
