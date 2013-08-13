@@ -18,8 +18,12 @@ Things you may want to cover:
 
 * Configuration - ImageMagick
 
-* Database creation - rake db:create
+* Database creation - MongoDB is used. More instructions to come.
 
-* Database initialization - rake db:seed
+* Database initialization - More instructions to come.
 
 The documenation will be updated as we go.
+
+Other Instructions:
+
+- Install MongoDB using brew install mongodb on MacOSX.
