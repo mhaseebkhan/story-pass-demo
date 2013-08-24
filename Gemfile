@@ -59,4 +59,6 @@ group :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'capybara'
+  gem 'mongoid-rspec'
+  gem 'factory_girl'
 end

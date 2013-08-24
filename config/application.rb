@@ -35,8 +35,6 @@ module StoryPassDemo
       g.view_specs false
       g.helper_specs false
     end
-    Mongoid.logger.level = Logger::DEBUG
-    Moped.logger.level = Logger::DEBUG
 
   end
 end
