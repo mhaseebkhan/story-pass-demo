@@ -95,3 +95,7 @@ end
 Then /^page should have (.+) message "([^\"]*)"$/ do |type, text|
   page.has_css?("p.#{type}", :text => text, :visible => true)
 end
+
+Then /^I should see the alt text "([^\"]*)"$/ do | alt_text |
+  page.should have_xpath("//img[@alt=\"#{alt_text}\"]")
+end

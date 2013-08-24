@@ -1,9 +1,10 @@
 module NavigationHelpers
   def path_to(page_name)
     case page_name
-
       when /the home\s?page/
         '/'
+      #when 'Grabled Image Show Page'
+      #  '/show-grabled-image'
       else
         begin
           page_name =~ /the (.*) page/

@@ -13,6 +13,8 @@
   This project is a demo for the concept. Later on, the code would be extracted and converted to a gem that it can be
   used in any Rails project.
 %br
-%p{style: "text-align: center;"}
-  %a.btn.btn-large.btn-success= "View Demo"
-  =# link_to("View Demo", )
+%p.center
+  %a.btn.btn-large.btn-success.btn-view-demo= "View Demo"
+  %br
+  %br
+  = link_to("View Grabled Image", show_grabled_image_path, class: "btn btn-large btn-success btn-view-grabled")

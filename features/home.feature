@@ -6,4 +6,5 @@ Feature: StoryPass Demo Homepage
   Scenario: Visit the homepage
     Given I am on the homepage
     Then I should see "StoryPass Demo" in "h1"
-    And I should see "View Demo" link
+    And I should see "View Demo" in ".btn-view-demo"
+    And I should see "View Grabled Image" in ".btn-view-grabled"

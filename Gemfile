@@ -15,6 +15,9 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'bootstrap-sass'
 
+gem 'rmagick', :require => false
+gem 'flickraw'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
