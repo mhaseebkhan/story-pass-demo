@@ -1,5 +1,7 @@
 # StoryPass
 
+[![Current Build Status of master branch: ](https://travis-ci.org/mhaseebkhan/story-pass-demo.png)](https://travis-ci.org/mhaseebkhan/story-pass-demo)
+
 **Project Brief:**
 
 StoryPass is a new password recovery system which allows users to recover their password based on some images uploaded as a part of registration process. The images are selected based on a story by the user.
@@ -12,7 +14,7 @@ This project is a demo for the concept. Later on, the code would be extracted an
 
 **Tech Details:**
 
-* Ruby version - 2.0
+* Ruby - 2.0
 * Rails - 4.0
 * Database - MongoDB
 * Other Tools - ImageMagick
@@ -24,6 +26,7 @@ This project is a demo for the concept. Later on, the code would be extracted an
  * haml
 * Development Methodology - TDD/BDD using RSpec and Cucumber
 * Deployment Platform - [Heroku](http://story-pass-demo.herokuapp.com/)
+* Travis for reporting current build status
 
 This document will be updated as we go.
 
