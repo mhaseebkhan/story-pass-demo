@@ -5,6 +5,7 @@ Feature: StoryPass Grabled Image View
 
   Scenario: Visit the Grabled Image View Page
     Given I am on the homepage
+    And I want to view a grabled image
     And I click "View Grabled Image"
     Then I should be on the show grabled image page
-    Then I should see the alt text "Grabled Image"
+    And I should see a grabled image

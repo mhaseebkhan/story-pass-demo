@@ -15,7 +15,7 @@ describe "StoryPass Demo Homepage" do
   end
 
   it 'should have a View Demo link' do
-    find("a").should have_content("View Demo")
+    find("a.btn-view-demo").should have_content("View Demo")
   end
 
 end

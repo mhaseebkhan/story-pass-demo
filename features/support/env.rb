@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+require 'cucumber/rspec/doubles'
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
@@ -58,3 +59,5 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+FlickRaw.api_key = "6e52efbe8e7085e20a60ff5a38c2b5c0"
+FlickRaw.shared_secret = "ed3b02a926610e7a"

@@ -46,6 +46,11 @@ When /^I choose "([^\"]*)"$/ do |field|
   choose(field)
 end
 
+When /^I want to view a grabled image$/ do
+  a = Magick::Image.read("#{Rails.root}/app/assets#{ActionController::Base.helpers.asset_path('images/backgrounds/1.png')}")
+  Magick::Image.stub(:read).and_return(a)
+end
+
 Then /^I should see "([^\"]*)"$/ do |text|
   page.should have_content(text)
 end
@@ -96,6 +101,7 @@ Then /^page should have (.+) message "([^\"]*)"$/ do |type, text|
   page.has_css?("p.#{type}", :text => text, :visible => true)
 end
 
-Then /^I should see the alt text "([^\"]*)"$/ do | alt_text |
-  page.should have_xpath("//img[@alt=\"#{alt_text}\"]")
+Then /^I should see a grabled image$/ do
+  find("img")["src"].should have_content("data:image/png;base64,")
+  find("img")["alt"].should == "Grabled Image"
 end

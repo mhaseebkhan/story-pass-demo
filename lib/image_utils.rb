@@ -4,7 +4,7 @@ module ImageUtils
 
   def self.get_grabled_image_from_flickr
     background = Magick::Image.read("#{Rails.root}/app/assets#{ActionController::Base.helpers.asset_path('images/backgrounds/1.png')}").first
-    flickr_recent_photos = FlickRaw::Flickr.new.photos.getRecent
+    flickr_recent_photos = flickr.photos.getRecent
 
     x = 0
     y = 10
