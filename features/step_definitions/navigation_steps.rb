@@ -102,6 +102,9 @@ Then /^page should have (.+) message "([^\"]*)"$/ do |type, text|
 end
 
 Then /^I should see a grabled image$/ do
-  find("img")["src"].should have_content("data:image/png;base64,")
-  find("img")["alt"].should == "Grabled Image"
+  image = find("img")
+  image["src"].should have_content("data:image/png;base64,")
+  image["alt"].should == "Grabled Image"
+  image.should_not be_nil
+  Magick::Image.read_inline(image["src"].gsub(/^(data:image\/png;base64,)$/, '')).first.should_not raise_error
 end
