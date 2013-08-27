@@ -64,4 +64,7 @@ group :test do
   gem 'capybara'
   gem 'mongoid-rspec'
   gem 'factory_girl'
+  gem 'httplog'
+  gem 'webmock', '1.11.0'
+  gem 'vcr'
 end
