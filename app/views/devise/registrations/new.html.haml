@@ -1,0 +1,43 @@
+.form-devise{:style =>  "max-width:520px"}
+  %h2.form-devise-heading Sign up
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    = f.text_field :name, :class=>"input-block-level", :autofocus => true, :placeholder =>"Your Name"
+    = f.email_field :email, :class => 'input-block-level', :placeholder =>"Your Email Address"
+    = f.password_field :password, :class => 'input-block-level', :placeholder =>"Password"
+    = f.password_field :password_confirmation, :class => 'input-block-level', :placeholder =>"Confirm Password"
+
+    %br/
+    %br/
+    %fieldset
+      - questions  = Question.all
+      = questions.each do |question|
+        %p
+          = f.radio_button :question_id, question.id
+          = question.question_text
+
+    %fieldset
+      = f.fields_for :answers, resource.default_answers do |answer|
+        %div
+          = f.label :password, "Blank # 1"
+          = answer.file_field :answer_image
+          = answer.hidden_field :position, :value => 1
+      = f.fields_for :answers, resource.default_answers do |answer|
+        %div
+          = f.label :password, "Blank # 2"
+          = answer.file_field :answer_image
+          = answer.hidden_field :position, :value => 2
+      = f.fields_for :answers, resource.default_answers do |answer|
+        %div
+          = f.label :password, "Blank # 3"
+          = answer.file_field :answer_image
+          = answer.hidden_field :position, :value => 3
+      = f.fields_for :answers, resource.default_answers do |answer|
+        %div
+          = f.label :password, "Blank # 4"
+          = answer.file_field :answer_image
+          = answer.hidden_field :position, :value => 4
+
+
+    = f.submit "Sign up", :class =>    "btn btn-primary"
+  = render "devise/shared/links"

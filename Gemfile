@@ -18,6 +18,11 @@ gem 'bootstrap-sass'
 gem 'rmagick', :require => false
 gem 'flickraw'
 
+gem 'carrierwave'
+gem 'fog'
+
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

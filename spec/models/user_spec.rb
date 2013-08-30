@@ -7,12 +7,10 @@ describe User do
       :name => "Example User",
       :email => "user@example.com",
       :password => "changeme",
-      :password_confirmation => "changeme"
+      :password_confirmation => "changeme",
+      :question_id  =>  "Xse23fsrr44",
+      #:answers      =>  answers
     }
-  end
-
-  it "should create a new instance given a valid attribute" do
-    User.create!(@attr)
   end
 
   it "should require an email address" do

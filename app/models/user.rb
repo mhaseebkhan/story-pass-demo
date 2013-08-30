@@ -9,12 +9,23 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :answers
+
+  has_one :question
+
+  accepts_nested_attributes_for :answers, :autosave => true
+  embeds_many :answers
+
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
+
+  validates_presence_of :question_id
+
+  #validate :require_two_answers
 
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -31,7 +42,9 @@ class User
   field :last_sign_in_ip,    :type => String
 
   field :name, :type => String
-  validates_presence_of :name
+  field :question_id,  :type  => String
+
+  #validates_presence_of :name
 
   ## Confirmable
   # field :confirmation_token,   :type => String
@@ -48,5 +61,16 @@ class User
   # field :authentication_token, :type => String
   # run 'rake db:mongoid:create_indexes' to create indexes
   index({ email: 1 }, { unique: true, background: true })
+
+
+
+  def default_answers
+    answers.build
+  end
+
+  private
+  def require_two_answers
+    errors.add(:base, "You must provide 4 hint answers.") if answers.count < 4
+  end
 
 end
