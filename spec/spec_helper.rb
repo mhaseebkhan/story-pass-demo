@@ -6,6 +6,10 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'webmock/rspec'
+require 'vcr'
+
+
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -55,7 +59,23 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  include CarrierWaveDirect::Test::CapybaraHelpers
+
 end
 
 FlickRaw.api_key = "6e52efbe8e7085e20a60ff5a38c2b5c0"
 FlickRaw.shared_secret = "ed3b02a926610e7a"
+
+VCR.configure do |c|
+  # Tell VCR where to save the cassettes (YAML files).
+  # Absolute paths will work too.
+  c.cassette_library_dir = 'fixtures/cassettes'
+
+  # Tell VCR which HTTP library to 'intercept.'
+  # I've been using Faraday lately.
+  c.hook_into :webmock
+end
+
+VCR.insert_cassette('flickr.reflection.getMethods', allow_playback_repeats: true, match_requests_on: [:body])
+VCR.insert_cassette('flickr.photos.getRecent', allow_playback_repeats: true, match_requests_on: [:body])
+

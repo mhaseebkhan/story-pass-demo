@@ -25,7 +25,7 @@ class User
 
   validates_presence_of :question_id
 
-  #validate :require_two_answers
+  validate :require_two_answers
 
   ## Recoverable
   field :reset_password_token,   :type => String

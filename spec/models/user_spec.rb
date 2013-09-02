@@ -9,8 +9,8 @@ describe User do
       :password => "changeme",
       :password_confirmation => "changeme",
       :question_id  =>  "Xse23fsrr44",
-      #:answers      =>  answers
     }
+    @user_answers = {}
   end
 
   it "should require an email address" do
@@ -45,6 +45,13 @@ describe User do
     User.create!(@attr.merge(:email => upcased_email))
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
+  end
+
+  it "should reject if 4 hint answers not provided" do
+
+    test_user = User.new(@attr)
+    test_user.should_not be_valid
+
   end
 
   describe "passwords" do
